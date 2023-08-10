@@ -1,4 +1,5 @@
 from django.shortcuts import render, HttpResponse
+from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from . import forms, models
@@ -7,7 +8,7 @@ def home(request):
     return HttpResponse('<h1>Account Home</h1>')
 
 def register(request):
-    if request.method == 'post':
+    if request.method == 'POST':
         user_form = forms.UserRegistrationForm(request.POST)
         if user_form.is_valid():
             new_user = user_form.save(commit=False)
@@ -41,15 +42,21 @@ def user_login(request):
 
 @login_required
 def edit(request):
-    if request.method == 'post':
+    if request.method == 'POST':
         user_form = forms.UserEditForm(instance=request.user, data=request.POST)
         profile_form = forms.ProfileEditForm(instance=request.user.profile, data=request.POST, files=request.FILES)
+        
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
+            messages.success(request, 'Profile updated successfully')
+        else:
+           messages.error(request, 'Error updating your profile') 
+           
     else:
         user_form = forms.UserEditForm(instance=request.user)
         profile_form = forms.ProfileEditForm(instance=request.user.profile)
+        
     return render(request, 'account/edit.html', {'profile_form':profile_form, 'user_form':user_form})
 
 @login_required
