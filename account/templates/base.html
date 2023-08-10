@@ -10,7 +10,7 @@
 <body>
 
 <div id="header" style="background-color: dodgerblue;">
-    <span class="logo">SS</span>
+    <span class="logo"><a href="{% url "dashboard" %}">SS</a></span>
     {% if request.user.is_authenticated %}
     <ul class="menu">
         <li {% if section == "dashboard" %}class="selected"{% endif %}>
@@ -21,6 +21,9 @@
         </li>
         <li {% if section == "people" %}class="selected"{% endif %}>
             <a href="#">People</a>
+        </li>
+        <li {% if section == "admin" %}class="selected"{% endif %}>
+            <a href="{% url 'admin:index' %}">Admin</a>
         </li>
     </ul>
     {% endif %}
