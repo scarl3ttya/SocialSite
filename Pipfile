@@ -6,6 +6,12 @@ name = "pypi"
 [packages]
 django = "*"
 pillow = "*"
+social-auth-app-django = {git = "https://github.com/python-social-auth/social-app-django.git"}
+django-extensions = {git = "https://github.com/django-extensions/django-extensions.git"}
+werkzeug = "*"
+pyopenssl = "*"
+requests = "*"
+easy-thumbnails = "*"
 
 [dev-packages]
 

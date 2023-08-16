@@ -1,0 +1,12 @@
+#bookmarklet {
+    position:fixed;
+    top:0;
+    right:0;
+    z-index: 99999;
+    width: 50%;
+    height: 400px;
+    background-color: cadetblue;
+    padding: 10px;
+    overflow: scroll;
+    
+}

@@ -25,19 +25,23 @@ SECRET_KEY = 'django-insecure-hxnvmvu-x&@iru+g4#-ecje5hy_u41xn4sr0yb1mf+)9oxt8*n
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['mysite.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
 
 INSTALLED_APPS = [
     'account.apps.AccountConfig',
+    'images.apps.ImagesConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'social_django',
+    'django_extensions',
+    'easy_thumbnails',
     
 ]
 
@@ -143,3 +147,4 @@ AUTHENTICATION_BACKENDS = [
 # Dev
 ##
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
