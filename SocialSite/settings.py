@@ -143,6 +143,13 @@ AUTHENTICATION_BACKENDS = [
  'account.authentication.EmailAuthBackend',
 ]
 
+from django.urls import reverse_lazy
+#  returns the corresponding URL for the given model specified
+ABSOLUTE_URL_OVERRIDES = {
+    'auth.user': lambda u: reverse_lazy('user_detail', args=[u.username])
+}
+
+
 ##
 # Dev
 ##

@@ -3,6 +3,7 @@ from django.urls import reverse
 from django.utils.text import slugify
 from django.db import models
 
+
 class Image(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='images_created')
     title =  models.CharField(max_length=200)
