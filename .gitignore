@@ -2,3 +2,4 @@
 *.crt
 *.cert
 *.key
+media/
