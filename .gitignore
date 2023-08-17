@@ -1,0 +1,4 @@
+*.log
+*.crt
+*.cert
+*.key
