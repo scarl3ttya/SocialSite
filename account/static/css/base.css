@@ -24,7 +24,7 @@ h1, h2, h3, h4, h5 , h6 { font-family: 'Muli', sans-serif; font-weight:normal; }
 h1 {
     border-bottom:1px solid #bbb;
     padding:0 0 10px 0;
-    margin:10px 0 20px 0;
+    margin:10px 0 10px 0;
 }
 
 h2 {
@@ -81,7 +81,7 @@ ol {
 }
 
 #content {
-    padding:30px 100px;
+    padding:10px;
 }
 
 /* forms */
@@ -204,6 +204,7 @@ ul.messages li a.close {
     padding:20px 0;
     overflow:auto;
 }
+
 .count {
     color:#aaa;
     border:3px solid #bbb;
