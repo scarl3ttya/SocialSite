@@ -12,6 +12,8 @@ werkzeug = "*"
 pyopenssl = "*"
 requests = "*"
 easy-thumbnails = "*"
+django-debug-toolbar = "*"
+redis = "*"
 
 [dev-packages]
 
