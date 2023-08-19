@@ -4,7 +4,9 @@ from django.core.paginator import Paginator, EmptyPage,  PageNotAnInteger
 from django.views.decorators.http import require_POST
 from django.http import JsonResponse, HttpResponse
 from django.contrib import messages
+from actions.utils import create_action
 from . import forms, models
+
 
 
 @login_required
@@ -36,6 +38,7 @@ def image_like(request):
             image = models.Image.objects.get(id=image_id)
             if action == 'like':
                 image.users_like.add(request.user)
+                create_action(request.user, 'likes', image)
             else:
                 image.users_like.remove(request.user)
             return JsonResponse({'status':'ok'})
@@ -54,6 +57,7 @@ def image_create(request):
             new_image = form.save(commit=False)
             new_image.user = request.user
             new_image.save()
+            create_action(request.user, 'bookmarded image', new_image)
             messages.success(request, 'Image added successfully!')
             return redirect(new_image.get_absolute_url())
         else:
